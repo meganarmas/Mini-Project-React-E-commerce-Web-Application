@@ -3,39 +3,42 @@ import axios from 'axios';
 import { Container, Card } from 'react-bootstrap';
 
 
-function OrderDetails() {
+const OrderDetails = () => {
     const [id, setId] = useState("");
-    const [order, setOrder] = useState(null);
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      axios
-        .put(`http://127.0.0.1:5000/api/orders/${id}`)
-        .then((response) => {
-          alert("Product update successfully!");
-        })
-        .catch((error) => {
-          console.error("There was an error updating product", error);
-        });
-    };
+    const [order, setOrder] = useState("");
 
-  return (
-    <Container className="order-detail">
-      <h2>Order Details</h2>
-      <Card>
-        <Card.Body>
-          <Card.Title>Order ID: {order.id}</Card.Title>
-          <Card.Text>
-            <strong>Customer:</strong> {order.customer.name}<br />
-            <strong>Product:</strong> {order.product.name}<br />
-            <strong>Quantity:</strong> {order.quantity}<br />
-            <strong>Total Price:</strong> ${order.totalPrice}<br />
-            <strong>Status:</strong> {order.status}<br />
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </Container>
-  );
-};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+          .get(`http://127.0.0.1:5000/api/products/${id}`)
+          .then((response) => {
+            alert("Order found!");
+          })
+          .catch((error) => {
+            console.error("Error in searching for order:", error);
+          });
+      };
+  
+  
+      return (
+          <div>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={id}
+                    onChange={(e) => setId(e.target.value)}
+                    placeholder="Customer ID"
+                    required
+                />
+                <button type="submit">Find Order Details</button>
+                </form>
+                <div>
+                    <h3>{order.name}</h3>
+                    <p>{order.email}</p>
+                    <p>{order.phone}</p>
+                </div>
+            </div>
+        );
+      }
 
 export default OrderDetails;

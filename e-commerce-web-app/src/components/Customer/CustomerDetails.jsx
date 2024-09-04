@@ -3,42 +3,41 @@ import axios from 'axios';
 import { Button } from "react-bootstrap";
 
 const CustomerDetail = () => {
-    const {id, setId} = useState("");
-    const [customer, setCustomer] = useState(null);
+    const [customerId, setCustomerId] = useState("");
+    const [customer, setCustomer] = useState("");
 
-    useEffect(() => {
-        fetchCustomerDetails();
-    }, {id});
-
-    const fetchCustomerDetails = async () => {
-        try {
-            const response = await axios.get(`http://localhost:5000/api/customers/${customerId}`);
-            setCustomer(response.data);
-        } catch (error){
-            console.log("Error fetching order details:", error);
-        }
-    };
-
-
-    if (!customers) {
-        return <div>Finding details...</div>;
-    }
-
-    return(
-        <div>
-            <form onSubmit={fetchCustomerDetails}>
-            <input type="text" value={id} onChange={(e) => setId(e.target.value)} required>Customer ID:</input>
-            <Button Click={fetchCustomerDetails} variant="primary">Get Customer Details:</Button>
-            </form>
-            {customer && (
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+          .get(`http://127.0.0.1:5000/api/products/${customerId}`)
+          .then((response) => {
+            alert("Customer found!");
+          })
+          .catch((error) => {
+            console.error("Error in searching for customer:", error);
+          });
+      };
+  
+  
+      return (
+          <div>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={customerId}
+                    onChange={(e) => setCustomerId(e.target.value)}
+                    placeholder="Customer ID"
+                    required
+                />
+                <button type="submit">Find Customer</button>
+                </form>
                 <div>
-                    <h2>{customer.name}</h2>
+                    <h3>{customer.name}</h3>
                     <p>{customer.email}</p>
                     <p>{customer.phone}</p>
+                </div>
             </div>
-            )}
-        </div>
-    );
-};
+        );
+      }
 
 export default CustomerDetail;
