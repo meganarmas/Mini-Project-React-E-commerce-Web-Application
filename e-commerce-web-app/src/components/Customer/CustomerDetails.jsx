@@ -12,15 +12,15 @@ const CustomerDetail = () => {
 
     const fetchCustomerDetails = async () => {
         try {
-            const response = await axios.get(`http://localhost:127.0.0.1/customers/${id}`);
-            setCustomers(response.data);
+            const response = await axios.get(`http://localhost:5000/api/customers/${customerId}`);
+            setCustomer(response.data);
         } catch (error){
             console.log("Error fetching order details:", error);
         }
     };
 
 
-    if (!order) {
+    if (!customers) {
         return <div>Finding details...</div>;
     }
 

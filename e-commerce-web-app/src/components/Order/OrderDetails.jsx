@@ -1,46 +1,41 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Container, Card } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Container, Card } from 'react-bootstrap';
 
-const OrderDetails = () => {
-    const {id} = useState("");
+
+function OrderDetails() {
+    const [id, setId] = useState("");
     const [order, setOrder] = useState(null);
-
-    useEffect(() => {
-        fetchOrderDetails();
-    }, {id});
-
-    const fetchOrderDetails = async () => {
-        try {
-            const response = await axios.get(`http://localhost:127.0.0.1/orders${id}`);
-            setOrder(response.data);
-        } catch (error){
-            console.log("Error fetching order details:", error);
-        }
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      axios
+        .put(`http://127.0.0.1:5000/api/orders/${id}`)
+        .then((response) => {
+          alert("Product update successfully!");
+        })
+        .catch((error) => {
+          console.error("There was an error updating product", error);
+        });
     };
 
-
-    if (!order) {
-        return <div>Finding details...</div>;
-    }
-
-    return(
-        <Container className="order-detail">
-            <h2>Order Details</h2>
-            <Card>
-                <Card.Body>
-                    <Card.Title>Order ID: {order.id}</Card.Title>
-                    <Card.Text>
-                        <strong>Customer:</strong> {order.customer.name}
-                        <strong>Product:</strong> {order.product.name}
-                        <strong>Price:</strong> {order.total_price}
-                        <strong>Status:</strong> {order.status}
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        </Container>
-    );
+  return (
+    <Container className="order-detail">
+      <h2>Order Details</h2>
+      <Card>
+        <Card.Body>
+          <Card.Title>Order ID: {order.id}</Card.Title>
+          <Card.Text>
+            <strong>Customer:</strong> {order.customer.name}<br />
+            <strong>Product:</strong> {order.product.name}<br />
+            <strong>Quantity:</strong> {order.quantity}<br />
+            <strong>Total Price:</strong> ${order.totalPrice}<br />
+            <strong>Status:</strong> {order.status}<br />
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
+  );
 };
-
 
 export default OrderDetails;

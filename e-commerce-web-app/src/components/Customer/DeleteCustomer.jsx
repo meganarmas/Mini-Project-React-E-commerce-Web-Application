@@ -6,21 +6,31 @@ import { Button } from 'react-bootstrap';
 function DeleteCustomer () {
     const [id, setId] = useState('');
 
-    const DeleteID = () => {
-        try {
-            const response = axios.delete(`http://localhost:127.0.0.1/customers/${id}`);
-            setId(response.data);
-        } catch (error){
-            console.log("Error fetching customer ids:", error);
-        }
-    };
-
-    return (
-        <div>
-            <input type="text" value={id} onChange={(e) => setId(e.target.value)} required placeholder="Enter customer ID:">Enter Customer ID:</input>
-            <Button onClick={DeleteID} variant="primary">Delete</Button>
-        </div>
-    );
-}
+    const handleDelete = (e) => {
+        e.preventDefault();
+        axios
+          .delete(`http://127.0.0.1:5000/api/products/${id}`)
+          .then((response) => {
+            alert("Customer deleted successfully.");
+          })
+          .catch((error) => {
+            console.error("Error in deleting customer information:", error);
+          });
+      };
+  
+  
+      return (
+          <div>
+               <input
+              type="text"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+              placeholder="Customer ID"
+              required
+            />
+            <button onClick={handleDelete}>Delete Customer</button>
+            </div>
+        );
+      }
 
 export default DeleteCustomer;
