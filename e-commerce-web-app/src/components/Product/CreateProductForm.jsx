@@ -8,7 +8,7 @@ function CreateProductForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
       axios
-        .post("http://127.0.0.1:5000/api/customers", { name, price })
+        .post("http://127.0.0.1:5000/products", { name, price })
         .then((response) => {
           alert("Customer created successfully!");
         })

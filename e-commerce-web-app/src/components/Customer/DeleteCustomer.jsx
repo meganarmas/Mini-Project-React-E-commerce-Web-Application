@@ -9,7 +9,7 @@ function DeleteCustomer () {
     const handleDelete = (e) => {
         e.preventDefault();
         axios
-          .delete(`http://127.0.0.1:5000/api/products/${id}`)
+          .delete(`http://127.0.0.1:5000/customer_accounts/${id}`)
           .then((response) => {
             alert("Customer deleted successfully.");
           })

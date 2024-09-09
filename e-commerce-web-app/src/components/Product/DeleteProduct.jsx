@@ -9,7 +9,7 @@ function DeleteProduct () {
         const handleDelete = (e) => {
           e.preventDefault();
           axios
-            .delete(`http://127.0.0.1:5000/api/products/${id}`)
+            .delete(`http://127.0.0.1:5000/products/${id}`)
             .then((response) => {
               alert("Product deleted successfully.");
             })
