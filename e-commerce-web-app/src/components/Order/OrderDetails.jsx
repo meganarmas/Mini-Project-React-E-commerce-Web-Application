@@ -10,7 +10,7 @@ const OrderDetails = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-          .get(`http://127.0.0.1/orders/${id}`)
+          .get(`http://127.0.0.1:5000/orders/${id}`)
           .then((response) => {
             alert("Order found!");
           })

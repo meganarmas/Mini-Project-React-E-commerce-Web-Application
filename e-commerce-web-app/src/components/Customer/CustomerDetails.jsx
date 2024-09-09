@@ -9,7 +9,7 @@ const CustomerDetail = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-          .get(`http://127.0.0.1/customers/${name}`)
+          .get(`http://127.0.0.1:5000/customers/${name}`)
           .then((response) => {
             alert("Customer found!");
           })
