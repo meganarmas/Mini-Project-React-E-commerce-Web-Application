@@ -3,13 +3,13 @@ import axios from 'axios';
 import { Button } from "react-bootstrap";
 
 const CustomerDetail = () => {
-    const [customerId, setCustomerId] = useState("");
+    const [name, setName] = useState("");
     const [customer, setCustomer] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-          .get(`http://127.0.0.1:5000/customer_accounts/${customerId}`)
+          .get(`http://127.0.0.1/customers/${name}`)
           .then((response) => {
             alert("Customer found!");
           })
@@ -24,9 +24,9 @@ const CustomerDetail = () => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    value={customerId}
-                    onChange={(e) => setCustomerId(e.target.value)}
-                    placeholder="Customer ID"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Name"
                     required
                 />
                 <button type="submit">Find Customer</button>

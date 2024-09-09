@@ -10,7 +10,7 @@ function UpdateProduct() {
     const handleSubmit = (e) => {
       e.preventDefault();
       axios
-        .put(`http://127.0.0.1:5000/products/${id}`, { name, price })
+        .put(`http://127.0.0.1/products/${id}`, { name, price })
         .then((response) => {
           alert("Product update successfully!");
         })
