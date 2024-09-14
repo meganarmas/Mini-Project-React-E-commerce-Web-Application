@@ -27,15 +27,13 @@ const OrderDetails = () => {
                     type="text"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
-                    placeholder="Customer ID"
+                    placeholder="Order ID"
                     required
                 />
                 <button type="submit">Find Order Details</button>
                 </form>
                 <div>
-                    <h3>{order.name}</h3>
-                    <p>{order.email}</p>
-                    <p>{order.phone}</p>
+                    <h3>{order.id}</h3>
                 </div>
             </div>
         );
