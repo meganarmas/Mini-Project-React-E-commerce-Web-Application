@@ -10,7 +10,7 @@ function CreateProductForm() {
       axios
         .post("http://127.0.0.1:5000/products", { name, price })
         .then((response) => {
-          alert("Customer created successfully!");
+          alert("Product created successfully!");
         })
         .catch((error) => {
           console.error("There was an error creating the customer!", error);
