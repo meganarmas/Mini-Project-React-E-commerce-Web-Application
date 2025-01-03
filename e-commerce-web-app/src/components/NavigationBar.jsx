@@ -5,7 +5,7 @@ import React from "react";
 function NavigationBar() {
 
     return(
-        <Navbar className="navbar" expand="lg">
+        <Navbar className="navbar" expand="lg" style={{color: 'yellow'}}>
             <Navbar.Brand as={Link} to="/add-customer">Add Customer</Navbar.Brand> <br />
             <Navbar.Brand as={Link} to="/add-customer-list">Customer Details</Navbar.Brand> <br />
             <Navbar.Brand as={Link} to="/delete-customer">Delete Customer</Navbar.Brand> <br />

@@ -14,7 +14,6 @@ function App() {
   return (
     <div>
       <NavigationBar />
-      
           <Routes>
           <Route path="/add-customer" element={<CustomerForm />} />
           <Route path="add-customer-list" element={<CustomerDetail />} />
