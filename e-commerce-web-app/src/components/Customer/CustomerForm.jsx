@@ -20,14 +20,17 @@ function CustomerForm() {
   };
 
   return (
+    <div>
+    <h1 style={{color: 'darkslategray', font: 'Times New Roman'}}>Add User</h1>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
+        placeholder="Enter Full Name"
         required
       />
+      
       <input
         type="email"
         value={email}
@@ -44,6 +47,7 @@ function CustomerForm() {
       />
       <Button type="submit" variant="primary">Create Customer</Button>
     </form>
+    </div>
   );
 }
 

@@ -22,6 +22,7 @@ const CustomerDetail = () => {
   
       return (
           <div>
+            <h1>Get Users Data</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
