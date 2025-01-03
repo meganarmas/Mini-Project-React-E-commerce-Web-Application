@@ -69,3 +69,7 @@ body {
 .navbar a:hover {
   color: darkslateblue;
 }
+
+.navbar a:active {
+  color: red;
+}
