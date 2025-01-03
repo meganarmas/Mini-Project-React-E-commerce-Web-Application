@@ -21,6 +21,8 @@ function UpdateProduct() {
 
 
     return (
+      <div>
+        <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Update Product from Catalog</h1>
         <form onSubmit={handleSubmit}>
              <input
             type="text"
@@ -45,6 +47,7 @@ function UpdateProduct() {
           />
           <button type="submit" variant="primary">Update Product</button>
         </form>
+        </div>
       );
     }
 

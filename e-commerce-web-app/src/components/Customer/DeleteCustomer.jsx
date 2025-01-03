@@ -21,6 +21,7 @@ function DeleteCustomer () {
   
       return (
           <div>
+            <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Delete Customer</h1>
                <input
               type="text"
               value={id}

@@ -21,7 +21,7 @@ function CustomerForm() {
 
   return (
     <div>
-    <h1 style={{color: 'darkslategray', font: 'Times New Roman'}}>Add User</h1>
+    <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Add Customer</h1>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -45,7 +45,7 @@ function CustomerForm() {
         placeholder="Phone"
         required
       />
-      <Button type="submit" variant="primary">Create Customer</Button>
+      <Button type="submit" variant="primary" style={{backgroundColor: 'white'}}>Create Customer</Button>
     </form>
     </div>
   );

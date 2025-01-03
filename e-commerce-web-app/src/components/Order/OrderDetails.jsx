@@ -22,6 +22,7 @@ const OrderDetails = () => {
   
       return (
           <div>
+            <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Order Details</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

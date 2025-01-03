@@ -21,6 +21,7 @@ function DeleteProduct () {
     
         return (
             <div>
+              <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Delete Product from Catalog</h1>
                  <input
                 type="text"
                 value={id}

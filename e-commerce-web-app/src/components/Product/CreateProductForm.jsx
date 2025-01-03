@@ -18,6 +18,8 @@ function CreateProductForm() {
     };
   
     return (
+      <div>
+        <h1 style={{color: 'darkslategray', fontFamily: 'Arial'}}>Add Product to Catalog</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -35,6 +37,7 @@ function CreateProductForm() {
         />
         <button type="submit" variant="primary">Add Product</button>
       </form>
+      </div>
     );
   }
 
